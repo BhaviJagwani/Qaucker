@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/application/css/main.css"/>
+</head>
+<body>
+<h1 class="heading">
+Welcome to Quacker !
+</h1>
+<br/>
+<h3 class="sub-heading">Your Quacks:</h3>
+<br/>
+<ul class="container">
+{{#quacks}}
+	<li>
+	<div>
+	[&nbsp;&nbsp;<div class="time">{{timestamp}}</div>&nbsp;&nbsp;]&nbsp;&nbsp;
+	<div class="text">{{text}}</div>&nbsp;&nbsp;by&nbsp;&nbsp;<div class="user">Bhavi</div>
+	</div>
+	<br/>
+	</li>
+{{/quacks}}
+</ul>
+</body>
+</html>

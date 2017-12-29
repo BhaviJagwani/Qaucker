@@ -1,0 +1,41 @@
+body {
+	font-size:21px;
+	font-family: calibri;
+}
+
+div {
+	display: inline-block;
+}
+
+.container {
+	border: solid 1px #34495E;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+.text {
+	color:#900C3F;
+}
+
+.user {
+	color:#28B463;
+}
+.time {
+	color:#F1C40F;
+}
+
+ul {
+	list-style: none;
+	margin: 0px 20px;
+	padding: 20px;
+}
+
+.heading {
+	color: #34495E;
+	margin: 0px 20px;
+}
+
+.sub-heading {
+	color: #900C3F;
+	margin: 0px 20px;
+}

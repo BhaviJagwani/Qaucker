@@ -6,9 +6,12 @@ import com.quack.db.QuackDAO;
 import com.quack.resources.QuackResource;
 
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.dropwizard.views.ViewBundle;
+
 import java.net.URISyntaxException;
 
 public class quackApplication extends Application<quackConfiguration> {
@@ -24,6 +27,8 @@ public class quackApplication extends Application<quackConfiguration> {
 
 	@Override
 	public void initialize(final Bootstrap<quackConfiguration> bootstrap) {
+		 bootstrap.addBundle(new ViewBundle());
+		 bootstrap.addBundle(new AssetsBundle("/assets/css", "/css", null, "css"));
 	}
 
 	@Override

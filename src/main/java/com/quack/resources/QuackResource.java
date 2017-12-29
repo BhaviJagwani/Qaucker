@@ -1,7 +1,6 @@
 package com.quack.resources;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -15,8 +14,10 @@ import org.skife.jdbi.v2.sqlobject.BindBean;
 
 import com.quack.api.Quack;
 import com.quack.db.QuackDAO;
+import com.quack.views.QuackFeedView;
 
 @Path("quacks")
+@Produces({MediaType.TEXT_HTML, MediaType.APPLICATION_JSON})
 public class QuackResource {
 
 	private final QuackDAO quackDAO;
@@ -26,14 +27,13 @@ public class QuackResource {
 	}
 
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Quack> allQuacks(){
-		return quackDAO.listQuacks();
+	public QuackFeedView allQuacks(){
+		QuackFeedView view = new QuackFeedView(quackDAO.listQuacks());
+		return view;
 	}
 	
 	@GET
 	@Path("/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
 	public Quack findQuack(@PathParam("id") int id){
 		return quackDAO.findQuack(id);
 	}
