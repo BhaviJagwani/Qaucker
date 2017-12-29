@@ -1,5 +1,9 @@
 server:
   rootPath: /api/*
+  type: simple
+  connector:
+    type: http
+    port: 8080
 dateFormat: yyyy-MM-dd'T'HH:mmZ
 
 database:
@@ -7,13 +11,13 @@ database:
   driverClass: org.postgresql.Driver
 
   # the username
-  user: dbuser
+  user: ${JDBC_DATABASE_USERNAME}
 
   # the password
-  password: dbpassword
+  password: ${JDBC_DATABASE_PASSWORD}
 
   # the JDBC URL
-  url: jdbc:postgresql://localhost:5432/quacker
+  url: ${JDBC_DATABASE_URL}
 
   # any properties specific to your JDBC driver:
   properties:

@@ -9,6 +9,7 @@ import io.dropwizard.Application;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import java.net.URISyntaxException;
 
 public class quackApplication extends Application<quackConfiguration> {
 
@@ -26,7 +27,7 @@ public class quackApplication extends Application<quackConfiguration> {
 	}
 
 	@Override
-	public void run(final quackConfiguration configuration, final Environment environment) {
+	public void run(final quackConfiguration configuration, final Environment environment) throws URISyntaxException {
 		final DBIFactory factory = new DBIFactory();
 	    final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
 	    final QuackDAO dao = jdbi.onDemand(QuackDAO.class);
