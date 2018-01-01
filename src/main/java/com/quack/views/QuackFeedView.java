@@ -11,7 +11,7 @@ public class QuackFeedView extends View{
 	private List<Quack> quacks;
 
 	public QuackFeedView(List<Quack> quacks) {
-		super("feed.mustache");
+		super("feedAll.mustache");
 		this.quacks = quacks;
 	}
 

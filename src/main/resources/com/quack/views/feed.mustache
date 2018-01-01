@@ -10,16 +10,23 @@ Welcome to Quacker !
 <br/>
 <h3 class="sub-heading">Your Quacks:</h3>
 <br/>
+<div>
 <ul class="container">
 {{#quacks}}
 	<li>
 	<div>
 	[&nbsp;&nbsp;<div class="time">{{timestamp}}</div>&nbsp;&nbsp;]&nbsp;&nbsp;
-	<div class="text">{{text}}</div>&nbsp;&nbsp;by&nbsp;&nbsp;<div class="user">Bhavi</div>
+	<div class="text">{{text}}</div>&nbsp;&nbsp;-&nbsp;&nbsp;<div class="user">Bhavi</div>
 	</div>
 	<br/>
 	</li>
 {{/quacks}}
 </ul>
+<br/>
+<form class="textarea" method="post" action="/application/quacks">
+<textarea name="message"></textarea>
+<br/><button class= "submit" onclick = 'this.form.submit();'>Submit</button>
+</form>
+</div>
 </body>
 </html>

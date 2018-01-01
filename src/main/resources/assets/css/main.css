@@ -11,17 +11,22 @@ div {
 	border: solid 1px #34495E;
 	border-radius: 5px;
 	display: inline-block;
+	width: 100%;
+	margin-right: 0px;
 }
 
 .text {
-	color:#900C3F;
+/* 	color:#900C3F; */
+	color: #34495E;
 }
 
 .user {
-	color:#28B463;
+/* 	color:#28B463; */
+	color: #34495E;
 }
 .time {
-	color:#F1C40F;
+	/*color:#F1C40F;*/
+	color: #34495E;
 }
 
 ul {
@@ -39,3 +44,26 @@ ul {
 	color: #900C3F;
 	margin: 0px 20px;
 }
+
+.textarea {
+	margin: 20px;
+	width: 100%;
+}
+
+
+.textarea textarea {
+	padding: 20px;
+	width: 100%;
+	}
+	
+.textarea .submit {
+	background-color: white;
+	padding: 10px;
+	color: #F1C40F;
+	border: solid #34495E 1px;
+	border-radius: 5px;
+	margin-top: 15px;
+	float: right;
+	font-size:21px;
+	font-family: calibri;
+}	

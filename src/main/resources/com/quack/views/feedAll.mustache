@@ -1,0 +1,99 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/application/css/feed.css"/>
+</head>
+<body> 
+  <div class="container clearfix">
+    <div class="people-list" id="people-list">
+      <!--div class="search">
+        <input type="text" placeholder="search" />
+        <i class="fa fa-search"></i>
+      </div-->
+      <ul class="list">
+        <li class="clearfix">
+          <img src="/application/css/avatar.svg" alt="avatar" class="avatar"/>
+          <div class="about">
+            <div class="name">Vincent Porter</div>
+          </div>
+        </li>
+        
+        <li class="clearfix">
+          <img src="/application/css/avatar.svg" alt="avatar" class="avatar"/>
+          <div class="about">
+            <div class="name">Aiden Chavez</div>
+          </div>
+        </li>
+        
+        <li class="clearfix">
+          <img src="/application/css/avatar.svg" alt="avatar" class="avatar"/>
+          <div class="about">
+            <div class="name">Mike Thomas</div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+    
+    <div class="quack">
+      <div class="quack-header clearfix">
+        <img src="/application/css/avatar.svg" alt="avatar" class="avatar"/>
+        
+        <div class="quack-about">
+          <!--div class="quack-with">Quacks from Vincent Porter</div->
+          <!--div class="quack-num-messages">already 1 902 quacks</div-->
+        </div>
+      </div> <!-- end quack-header -->
+      
+      <div class="quack-history">
+        <ul>
+        {{#quacks}}
+          <li class="clearfix">
+            <div class="message-data">
+              <span class="message-data-time" >{{timestamp}}</span> &nbsp; &nbsp;
+            </div>
+            <div class="message other-message">
+              {{text}}
+            </div>
+          </li>
+          {{/quacks}}
+        </ul>
+        
+      </div> <!-- end quack-history -->
+
+    </div> <!-- end quack -->
+    
+  </div> <!-- end container -->
+
+<div class="quack-message clearfix">
+<form class="textarea" method="post" action="/application/quacks">
+<textarea name="message" id="message" placeholder ="Type your quack" rows="3"></textarea>                
+<br/><button class= "submit" onclick = 'this.form.submit();'>Submit</button>
+</form>
+</div> <!-- end quack-message -->
+
+<script id="message-template" type="text/x-handlebars-template">
+  <li class="clearfix">
+    <div class="message-data">
+      <span class="message-data-time" >{{time}}, Today</span> &nbsp; &nbsp;
+      <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
+    </div>
+    <div class="message other-message">
+      {{messageOutput}}
+    </div>
+  </li>
+</script>
+
+<script id="message-response-template" type="text/x-handlebars-template">
+  <li>
+    <div class="message-data">
+      <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
+      <span class="message-data-time">{{time}}, Today</span>
+    </div>
+    <div class="message my-message">
+      {{response}}
+    </div>
+  </li>
+</script>
+</body>
+</html>

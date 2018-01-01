@@ -1,0 +1,269 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+$green: #86BB71;
+$blue: #94C2ED;
+$orange: #E38968;
+$gray: #92959E;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.avatar {
+	height:55px;
+	width: 55px;
+	margin: 6px;
+	border: solid 3px #94C2ED;
+	border-radius: 40px;
+	padding: 10px;
+}
+
+.message.other-message {
+	display: inline-block;
+}
+
+.message-data {
+	display: inline-block;
+}
+
+.quack-message.clearfix {
+	margin-left: 50%;
+	margin-top: 15px;
+}
+
+body {
+  /* background: #C5DDEB; */
+  font: 14px/20px "Lato", Arial, sans-serif;
+  padding: 40px 0;
+  color: white;
+}
+
+.container {
+  margin: 0 auto;
+  width: 750px;
+  background: white;
+  border-radius: 5px;
+}
+
+ul.list{
+	list-style: none;
+}
+
+ul {
+	list-style: none;
+}
+
+
+.people-list {
+  width:260px;
+  float: left;
+  background: #444753;
+  .search {
+    padding: 20px;
+  }
+  
+  input {
+    border-radius: 3px;
+    border: none;
+    padding: 14px;
+    color: white;
+    background: #6A6C75;
+    width: 90%;
+    font-size: 14px;
+  }
+  
+  .fa-search {
+    position: relative;
+    left: -25px;
+  }
+  
+  ul {
+    padding: 20px;
+    height: 770px;
+    list-style: none;
+
+    li {
+      padding-bottom: 20px;
+    }
+  }
+  
+  img {
+    float: left;
+  }
+  
+  .about {
+    float: left;
+    margin-top: 8px;
+  }
+  
+  .about {
+    padding-left: 8px;
+  }
+  
+  .status {
+    color: $gray;
+  }
+  
+}
+
+.quack {
+  width: 490px;
+  float:left;
+  background: #F2F5F8;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  
+  color: #434651;
+  
+  .quack-header {
+    padding: 20px;
+    border-bottom: 2px solid white;
+    
+    img {
+      float: left;
+    }
+    
+    .quack-about {
+      float: left;
+      padding-left: 10px;
+      margin-top: 6px;
+    }
+    
+    .quack-with {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    
+    .quack-num-messages {
+      color: $gray;
+    }
+    
+    .fa-star {
+      float: right;
+      color: #D8DADF;
+      font-size: 20px;
+      margin-top: 12px;
+    }
+  }
+  
+  
+ul.quack-history{
+	list-style: none;
+}  
+
+  .quack-history {
+    padding: 30px 30px 20px;
+    border-bottom: 2px solid white;
+    overflow-y: scroll;
+    height: 575px;
+
+    
+    .message-data {
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+    
+    .message-data-time {
+      color: lighten($gray, 8%);
+      padding-left: 6px;
+      display: inline-block;
+    }
+    
+    .message {      
+      color: white;
+      padding: 18px 20px;
+      line-height: 26px;
+      font-size: 16px;
+      border-radius: 7px;
+      margin-bottom: 30px;
+      width: 90%;
+      position: relative;
+      display: inline-block;
+      
+      &:after {
+        bottom: 100%;
+        left: 7%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-bottom-color: $green;
+        border-width: 10px;
+        margin-left: -10px;
+        display: inline-block;
+      }
+    }
+    
+    .my-message {
+      background: $green;
+    }
+    
+    .other-message {
+      background: $blue;
+      display: inline-block;
+      
+      &:after {
+        border-bottom-color: $blue;
+        left: 93%;
+        display: inline-block;
+      }
+    }
+    
+  }
+  
+  .quack-message {
+    padding: 30px;
+    display: block;
+    margin-left: 50%;
+    margin-top: 10px;
+    
+    textarea {
+      width: 100%;
+      border: none;
+      padding: 10px 20px;
+      font: 14px/22px "Lato", Arial, sans-serif;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      resize: none;
+      
+    }
+    
+    .fa-file-o, .fa-file-image-o {
+      font-size: 16px;
+      color: gray;
+      cursor: pointer;
+      
+    }
+    
+    button {
+      float: right;
+      color: $blue;
+      font-size: 16px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      background: #F2F5F8;
+      
+      &:hover {
+        color: darken($blue, 7%);
+      }
+    }
+  }
+}
+
+.me {
+  color: $blue;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
