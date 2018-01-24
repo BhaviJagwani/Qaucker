@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.skife.jdbi.v2.StatementContext;
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 
-import com.quack.api.Quack;
+import com.quack.core.Quack;
 
 public class QuackMapper implements ResultSetMapper<Quack>{
 

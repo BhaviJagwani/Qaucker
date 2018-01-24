@@ -1,4 +1,4 @@
-package com.quack.api;
+package com.quack.core;
 
 import java.time.LocalDateTime;
 

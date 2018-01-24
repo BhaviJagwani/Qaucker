@@ -2,6 +2,8 @@ package com.quack.resources;
 
 import java.time.LocalDateTime;
 
+import javax.annotation.security.PermitAll;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -14,11 +16,16 @@ import javax.ws.rs.core.MediaType;
 import org.eclipse.jetty.http.HttpStatus;
 import org.skife.jdbi.v2.sqlobject.BindBean;
 
-import com.quack.api.Quack;
+import com.quack.core.Quack;
+import com.quack.core.User;
 import com.quack.db.QuackDAO;
 import com.quack.views.QuackFeedView;
 
+import io.dropwizard.auth.Auth;
+import io.dropwizard.jersey.sessions.Session;
+
 @Path("quacks")
+@PermitAll
 @Produces({MediaType.TEXT_HTML, MediaType.APPLICATION_JSON})
 public class QuackResource {
 
@@ -29,8 +36,8 @@ public class QuackResource {
 	}
 
 	@GET
-	public QuackFeedView allQuacks(){
-		QuackFeedView view = new QuackFeedView(quackDAO.listQuacks());
+	public QuackFeedView allQuacks(@Auth User user){
+		QuackFeedView view = new QuackFeedView(quackDAO.listQuacks(), user.getName());
 		return view;
 	}
 	
@@ -42,7 +49,7 @@ public class QuackResource {
 	
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
-	public int quack(@BindBean Quack quack){
+	public int quack(@Session HttpSession session, @BindBean Quack quack){
 		quack.setTimestamp(LocalDateTime.now());
 		quackDAO.insertBean(quack);
 		return HttpStatus.CREATED_201;
@@ -50,8 +57,8 @@ public class QuackResource {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public void quack(@FormParam("message") String text) {
-		Quack quack = new Quack(1, text, LocalDateTime.now());
+	public void quack(@Session HttpSession session, @FormParam("message") String text) {
+		Quack quack = new Quack((Long)session.getAttribute("userId"), text, LocalDateTime.now());
 		quackDAO.insertBean(quack);
 	}
 }
